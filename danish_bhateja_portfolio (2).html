@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danish Bhateja — Business Consultant & Financial Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e44;
+    --navy-light: #243b55;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --cream-dark: #ede8de;
+    --white: #ffffff;
+    --text-muted: #8a9ab0;
+    --text-body: #3a4a5c;
+    --accent: #2196b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(33,150,184,0.06) 0%, transparent 40%);
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 4rem 4rem 5rem;
+    position: relative; z-index: 1;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 30px; height: 1px;
+    background: var(--gold);
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900; line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .hero-name span { color: var(--gold); font-style: italic; }
+  .hero-title {
+    font-size: 1rem; font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+    max-width: 420px; line-height: 1.7;
+  }
+  .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy); font-weight: 700;
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border: none; cursor: pointer; text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(201,168,76,0.4);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    text-decoration: none; display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-right {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 5rem 4rem 2rem;
+    position: relative; z-index: 1;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; margin-bottom: 3rem;
+  }
+  .stat-card {
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.03);
+    position: relative;
+  }
+  .stat-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; width: 3px; height: 100%;
+    background: var(--gold);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.72rem; font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .hero-contact-row {
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .hero-contact-item {
+    display: flex; align-items: center; gap: 0.7rem;
+    font-size: 0.82rem; color: rgba(255,255,255,0.5);
+  }
+  .hero-contact-item a { color: var(--gold-light); text-decoration: none; }
+  .hero-contact-item a:hover { color: var(--gold); }
+  .dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 6rem 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.25em; text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+  }
+  .section-sub {
+    font-size: 0.95rem; color: var(--text-muted);
+    font-weight: 300; max-width: 520px; line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 5rem; align-items: start;
+  }
+  .about-left { position: sticky; top: 6rem; }
+  .profile-block {
+    background: var(--navy);
+    padding: 2.5rem;
+    position: relative;
+  }
+  .profile-block::after {
+    content: ''; position: absolute;
+    bottom: -8px; right: -8px;
+    width: 100%; height: 100%;
+    border: 2px solid var(--gold);
+    z-index: -1;
+  }
+  .profile-initials {
+    width: 64px; height: 64px;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 900;
+    color: var(--navy); margin-bottom: 1.5rem;
+  }
+  .profile-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.3rem;
+  }
+  .profile-role { font-size: 0.78rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .profile-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-size: 0.68rem; padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+  }
+  .about-right p {
+    font-size: 1rem; line-height: 1.85;
+    color: var(--text-body); margin-bottom: 1.5rem;
+  }
+  .about-right strong { color: var(--navy); }
+  .highlight-box {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.9rem; line-height: 1.7; color: var(--navy-mid);
+    font-style: italic;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--cream); }
+  .exp-timeline { position: relative; }
+  .exp-timeline::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2rem 0 2rem 2.5rem;
+    position: relative;
+    border-bottom: 1px solid rgba(13,27,42,0.07);
+    animation: fadeUp 0.5s both;
+  }
+  .exp-item::before {
+    content: ''; position: absolute;
+    left: -4px; top: 2.2rem;
+    width: 9px; height: 9px;
+    background: var(--gold); border-radius: 50%;
+  }
+  .exp-meta { padding-top: 0.2rem; }
+  .exp-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--gold);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .exp-company {
+    font-weight: 600; font-size: 0.85rem;
+    color: var(--navy); margin-bottom: 0.2rem;
+  }
+  .exp-location { font-size: 0.75rem; color: var(--text-muted); }
+  .exp-content {}
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 0.8rem;
+  }
+  .exp-role .badge {
+    display: inline-block; margin-left: 0.8rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; padding: 0.2rem 0.6rem;
+    background: var(--gold); color: var(--navy);
+    font-weight: 700; letter-spacing: 0.08em;
+    vertical-align: middle;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.88rem; line-height: 1.7;
+    color: var(--text-body); margin-bottom: 0.5rem;
+    padding-left: 1.2rem; position: relative;
+  }
+  .exp-bullets li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--gold); font-size: 0.7rem; top: 0.15rem;
+  }
+  .exp-bullets li strong { color: var(--navy); }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--navy); }
+  #projects .section-title { color: var(--white); }
+  #projects .section-sub { color: rgba(255,255,255,0.45); }
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .project-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-4px);
+  }
+  .project-card.featured {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(33,150,184,0.05));
+    border-color: rgba(201,168,76,0.3);
+  }
+  .project-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; font-weight: 900;
+    color: rgba(201,168,76,0.08);
+    position: absolute; top: -0.5rem; right: 1.5rem;
+    line-height: 1; pointer-events: none;
+  }
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: var(--gold);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.6rem; line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 0.83rem; color: rgba(255,255,255,0.45);
+    line-height: 1.7; margin-bottom: 1rem;
+  }
+  .project-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .pill {
+    font-size: 0.65rem; padding: 0.25rem 0.6rem;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: var(--cream-dark); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .skill-group {}
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; font-weight: 500;
+    color: var(--gold); letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(201,168,76,0.25);
+  }
+  .skill-item {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 0.9rem;
+  }
+  .skill-name { font-size: 0.85rem; color: var(--text-body); font-weight: 400; }
+  .skill-bar-wrap {
+    width: 80px; height: 3px;
+    background: rgba(13,27,42,0.1); border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-bar {
+    height: 100%; background: var(--gold); border-radius: 2px;
+    animation: barFill 1.2s ease both;
+  }
+  @keyframes barFill { from { width: 0 !important; } }
+
+  /* ─── CERTIFICATIONS ─── */
+  #certifications { background: var(--white); }
+  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .cert-card {
+    border: 1px solid rgba(13,27,42,0.1);
+    padding: 1.5rem;
+    position: relative; overflow: hidden;
+    transition: all 0.2s;
+  }
+  .cert-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .cert-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .cert-card:hover::before { transform: scaleX(1); }
+  .cert-org {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: var(--gold);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .cert-name { font-size: 0.88rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
+
+  /* ─── EDUCATION ─── */
+  #education { background: var(--cream); }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .edu-card {
+    background: var(--white);
+    border: 1px solid rgba(13,27,42,0.08);
+    padding: 2rem;
+    position: relative;
+  }
+  .edu-card::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--gold);
+  }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 0.3rem;
+  }
+  .edu-school { font-size: 0.85rem; font-weight: 500; color: var(--gold); margin-bottom: 0.2rem; }
+  .edu-date { font-size: 0.75rem; color: var(--text-muted); font-family: 'DM Mono', monospace; margin-bottom: 1rem; }
+  .edu-modules { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+  .edu-modules strong { color: var(--text-body); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--navy); padding: 5rem 0; }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  #contact .section-title { color: var(--white); }
+  #contact .section-sub { color: rgba(255,255,255,0.45); margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(201,168,76,0.15);
+    background: rgba(255,255,255,0.03);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-row:hover { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+  .contact-row-icon {
+    width: 36px; height: 36px;
+    background: var(--gold); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+  }
+  .contact-row-text {}
+  .contact-row-label { font-size: 0.65rem; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Mono', monospace; }
+  .contact-row-value { font-size: 0.88rem; color: var(--white); font-weight: 400; }
+  .contact-right {}
+  .contact-cta-box {
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 2.5rem;
+    background: rgba(255,255,255,0.03);
+    text-align: center;
+  }
+  .contact-cta-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+  .contact-cta-box p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 1.5rem; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #070e17;
+    padding: 1.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+  footer p { font-size: 0.75rem; color: rgba(255,255,255,0.2); font-family: 'DM Mono', monospace; }
+  footer a { color: var(--gold); text-decoration: none; font-size: 0.75rem; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp 0.6s ease both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 7rem 1.5rem 2rem; }
+    .hero-right { padding: 2rem 1.5rem 4rem; }
+    .about-grid, .contact-inner, .edu-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .about-left { position: static; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.2rem; }
+  }
+  @media (max-width: 520px) {
+    .skills-grid, .cert-grid, .hero-stats { grid-template-columns: 1fr; }
+    .section-title { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">DB</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Business Consultant &amp; Analyst</div>
+    <h1 class="hero-name">Danish<br><span>Bhateja</span></h1>
+    <p class="hero-title">MSc Accounting &amp; Finance · Founder of Finlysis · Consulting at Blackmont · London, UK</p>
+    <div class="hero-cta-row">
+      <a href="https://danishbhatejapersonalportfolio.tiiny.site" target="_blank" class="btn-primary">View Portfolio</a>
+      <a href="https://www.linkedin.com/in/danish-bhateja" target="_blank" class="btn-outline">LinkedIn ↗</a>
+      <a href="mailto:danishbhateja1@gmail.com" class="btn-outline">Email Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">130%</div>
+        <div class="stat-label">Target exceeded at Pristyn Care</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">72h</div>
+        <div class="stat-label">Finlysis MVP built from zero</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Languages — DORA AI chatbot</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Salesforce CRM badges</div>
+      </div>
+    </div>
+    <div class="hero-contact-row">
+      <div class="hero-contact-item"><div class="dot"></div> London, United Kingdom</div>
+      <div class="hero-contact-item"><div class="dot"></div> <a href="mailto:danishbhateja1@gmail.com">danishbhateja1@gmail.com</a></div>
+      <div class="hero-contact-item"><div class="dot"></div> +44 7586 160927</div>
+      <div class="hero-contact-item"><div class="dot"></div> <a href="https://www.linkedin.com/in/danish-bhateja" target="_blank">linkedin.com/in/danish-bhateja</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="profile-block">
+          <div class="profile-initials">DB</div>
+          <div class="profile-name">Danish Bhateja</div>
+          <div class="profile-role">Business Consultant · Founder</div>
+          <div class="profile-tags">
+            <span class="tag">Financial Analysis</span>
+            <span class="tag">Strategy</span>
+            <span class="tag">AI/SaaS</span>
+            <span class="tag">Consulting</span>
+            <span class="tag">Market Research</span>
+            <span class="tag">ESG</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Turning complex data into<br>decisive strategy.</h2>
+        <p>MSc Accounting &amp; Finance graduate from Bangor University and active Business Consultant Intern at Blackmont Consulting. I combine rigorous financial training with a founder's instinct — I built Finlysis, an AI-powered financial intelligence SaaS, from scratch in 72 hours without any prior technical experience.</p>
+        <div class="highlight-box">
+          "Exceeded monthly targets by 130% at Pristyn Care. Named Best Performer. Shipped an AI SaaS MVP in 72 hours. This is what proof-based performance looks like."
+        </div>
+        <p>My work sits at the intersection of <strong>financial analysis, strategic consulting, and technology</strong>. Whether it's building market research reports for clients, conducting OLS regression on 10,000+ data points for my ESG dissertation, or shipping AI-powered tools — I move fast, think clearly, and deliver outputs that decision-makers can act on.</p>
+        <p>Currently pursuing boutique and mid-market consulting opportunities in London, with a particular interest in firms where analytical rigour and entrepreneurial thinking are both valued.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Professional Experience</h2>
+    <p class="section-sub">A track record built on measurable outcomes and cross-sector exposure.</p>
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Feb 2026 – Present</div>
+          <div class="exp-company">Blackmont Consulting</div>
+          <div class="exp-location">Remote, UK</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Business Consultant Intern <span class="badge">Current</span></div>
+          <ul class="exp-bullets">
+            <li>Conduct structured <strong>market research</strong> to identify industry trends, competitive dynamics, and growth opportunities — producing actionable insights for client strategy engagements</li>
+            <li>Develop strategic recommendations and business improvement plans; create clear, structured reports and presentations for senior stakeholders</li>
+            <li>Analyse financial and operational data to surface inefficiencies and propose solutions — contributing to process optimisation across multiple client engagements</li>
+            <li>Manage multiple workstreams simultaneously in a fully remote environment, maintaining quality and meeting deadlines with minimal supervision</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Feb 2024 – Present</div>
+          <div class="exp-company">Britannia Hotels</div>
+          <div class="exp-location">London, UK</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Reception Operative</div>
+          <ul class="exp-bullets">
+            <li>Primary point of contact for guests in a high-volume environment — delivering responsive, solution-focused service</li>
+            <li>Managed check-ins, reservations, billing queries, and service issues while coordinating with internal teams</li>
+            <li>Handled confidential guest data and payment processing with full compliance accuracy</li>
+            <li>Balanced multiple priorities under pressure, consistently meeting service expectations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Jul 2023 – Dec 2023</div>
+          <div class="exp-company">Pristyn Care</div>
+          <div class="exp-location">Gurugram, India</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Business Development Executive <span class="badge">Best Performer</span></div>
+          <ul class="exp-bullets">
+            <li><strong>Exceeded monthly performance targets by 130%</strong> — awarded Best Performer recognition</li>
+            <li>Managed high-volume client relationships and maintained CRM data accuracy across multiple channels</li>
+            <li>Tracked and reported on operational KPIs; coordinated cross-functional teams to resolve client issues</li>
+            <li>Built strong collaboration and communication skills across departments in a fast-paced, target-driven environment</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Dec 2022 – May 2023</div>
+          <div class="exp-company">Asset Daddy</div>
+          <div class="exp-location">Gurugram, India</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Finance Trainee</div>
+          <ul class="exp-bullets">
+            <li>Supported investment analysis; gathered, structured, and maintained financial datasets for modelling and reporting</li>
+            <li>Communicated financial insights clearly to clients — translating data into plain language for non-specialist audiences</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Jun 2022 – Aug 2022</div>
+          <div class="exp-company">Chartered Accountant Firm</div>
+          <div class="exp-location">Hisar, India</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Accounting Assistant</div>
+          <ul class="exp-bullets">
+            <li>Supported audit and reconciliation processes, identifying and resolving data discrepancies</li>
+            <li>Maintained accurate financial records and coordinated with clients to resolve reporting queries</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold);">Work</div>
+    <h2 class="section-title">Projects &amp; Ventures</h2>
+    <p class="section-sub">Proof points over claims — every project here has a measurable output.</p>
+    <div class="projects-grid">
+
+      <div class="project-card featured">
+        <div class="project-num">01</div>
+        <div class="project-tag">Founder · SaaS · AI · Dec 2025 – Present</div>
+        <div class="project-name">Finlysis — AI-Powered Financial Intelligence Platform</div>
+        <div class="project-desc">Built from zero to MVP in 72 hours with no prior technical experience. An AI-powered platform that converts raw financial statements into institutional-grade analytical insights within seconds — covering DCF valuation, KPI analysis, anomaly detection, risk scoring, and peer benchmarking. Targeting VCs, investors, SMEs, and consultants.</div>
+        <div class="project-pills">
+          <span class="pill">DCF Valuation</span>
+          <span class="pill">WACC Sensitivity</span>
+          <span class="pill">Anomaly Detection</span>
+          <span class="pill">Cash Flow Forecasting</span>
+          <span class="pill">Peer Benchmarking</span>
+          <span class="pill">Risk Scoring</span>
+          <span class="pill">SaaS</span>
+          <span class="pill">AI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <div class="project-tag">MSc Dissertation · Empirical Research</div>
+        <div class="project-name">ESG Performance &amp; Syndicated Lending</div>
+        <div class="project-desc">Applied OLS regression to a dataset of 10,454 observations to analyse how borrower ESG scores affect syndicated loan pricing, spreads, and covenant structure. Found that higher ESG ratings correlate significantly with more favourable loan terms — demonstrating ESG as a measurable balance sheet variable.</div>
+        <div class="project-pills">
+          <span class="pill">OLS Regression</span>
+          <span class="pill">Statistical Analysis</span>
+          <span class="pill">ESG</span>
+          <span class="pill">Credit Risk</span>
+          <span class="pill">Excel</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <div class="project-tag">AI · HR Tech · Multilingual</div>
+        <div class="project-name">DORA — AI Wellbeing Chatbot</div>
+        <div class="project-desc">Built an AI-powered employee wellbeing support tool available in 40+ languages. Designed with ethical AI principles and strong user safety protocols — acting as first-line support for stress management and burnout reflection without replacing clinical care.</div>
+        <div class="project-pills">
+          <span class="pill">AI Chatbot</span>
+          <span class="pill">40+ Languages</span>
+          <span class="pill">HR Tech</span>
+          <span class="pill">Ethical AI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">04</div>
+        <div class="project-tag">Research · Capital Structure</div>
+        <div class="project-name">Leverage &amp; Profitability — Western European Firms</div>
+        <div class="project-desc">Investigated the impact of capital structure on firm profitability across Western European companies using simple and multiple linear regression in R. Identified a strong positive relationship between disciplined debt management and returns (ROAA, ROAE, profit margin).</div>
+        <div class="project-pills">
+          <span class="pill">R</span>
+          <span class="pill">Regression</span>
+          <span class="pill">Capital Structure</span>
+          <span class="pill">ROAA / ROAE</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Skills &amp; Capabilities</h2>
+    <p class="section-sub">Built through live consulting work, academic research, and independent ventures.</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Strategy &amp; Analysis</div>
+        <div class="skill-item"><span class="skill-name">Market Research</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Competitive Analysis</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Strategic Recommendations</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Process Optimisation</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Business Planning</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Financial Analysis</div>
+        <div class="skill-item"><span class="skill-name">Financial Modelling</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">DCF Valuation</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Excel (Advanced)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">OLS Regression (R)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Tech &amp; Tools</div>
+        <div class="skill-item"><span class="skill-name">Salesforce CRM</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">AI / SaaS Product Design</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Dashboard Development</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Data Storytelling</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">SQL (Basic)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications &amp; Training</h2>
+    <p class="section-sub">Professional development beyond the classroom.</p>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-org">EY</div>
+        <div class="cert-name">Financial Accounting Advisory Services (FAAS) Job Simulation</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-org">Goldman Sachs</div>
+        <div class="cert-name">Operations Job Simulation</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-org">Salesforce</div>
+        <div class="cert-name">CRM — 50+ Badges (Intermediate)</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-org">Finance</div>
+        <div class="cert-name">Financial Modelling &amp; Valuation</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-org">Excel</div>
+        <div class="cert-name">Excel for FP&amp;A</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-org">Upcoming</div>
+        <div class="cert-name">CIMA — Chartered Institute of Management Accountants</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Academic Background</h2>
+    <p class="section-sub">Rigorous quantitative and financial foundation.</p>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">MSc Accounting &amp; Finance</div>
+        <div class="edu-school">Bangor University</div>
+        <div class="edu-date">Jan 2024 – Jul 2025 · Bangor, UK</div>
+        <div class="edu-modules"><strong>Key Modules:</strong> Data Analysis, Risk &amp; Controls, Financial Reporting, Financial Markets. Dissertation: ESG Performance &amp; Syndicated Lending (OLS regression, 10,454 obs.)</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">BBA — Finance</div>
+        <div class="edu-school">Graphic Era University</div>
+        <div class="edu-date">Sept 2020 – Jun 2023 · Dehradun, India</div>
+        <div class="edu-modules">Undergraduate degree in Finance. Built foundational skills in accounting, financial markets, corporate finance, and investment analysis. Personal investment portfolio in equities, commodities, and mutual funds since age 18.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label" style="color:var(--gold);">Get In Touch</div>
+        <h2 class="section-title">Let's work<br><em style="font-style:italic;color:var(--gold);">together.</em></h2>
+        <p class="section-sub">Open to consulting roles, graduate analyst positions, and strategic conversations. Based in London.</p>
+        <div class="contact-items">
+          <a href="mailto:danishbhateja1@gmail.com" class="contact-row">
+            <div class="contact-row-icon">@</div>
+            <div class="contact-row-text">
+              <div class="contact-row-label">Email</div>
+              <div class="contact-row-value">danishbhateja1@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/danish-bhateja" target="_blank" class="contact-row">
+            <div class="contact-row-icon">in</div>
+            <div class="contact-row-text">
+              <div class="contact-row-label">LinkedIn</div>
+              <div class="contact-row-value">linkedin.com/in/danish-bhateja</div>
+            </div>
+          </a>
+          <a href="tel:+447586160927" class="contact-row">
+            <div class="contact-row-icon">✆</div>
+            <div class="contact-row-text">
+              <div class="contact-row-label">Phone</div>
+              <div class="contact-row-value">+44 7586 160927</div>
+            </div>
+          </a>
+          <a href="https://danishbhatejapersonalportfolio.tiiny.site" target="_blank" class="contact-row">
+            <div class="contact-row-icon">↗</div>
+            <div class="contact-row-text">
+              <div class="contact-row-label">Portfolio</div>
+              <div class="contact-row-value">danishbhatejapersonalportfolio.tiiny.site</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="contact-cta-box">
+          <h3>Ready to contribute from day one.</h3>
+          <p>MSc graduate with live consulting experience, an AI SaaS product, and a 130% performance track record. Looking for boutique &amp; mid-market consulting, strategic analyst, and graduate consultant roles in London.</p>
+          <a href="mailto:danishbhateja1@gmail.com" class="btn-primary" style="display:inline-block;">Start a Conversation →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Danish Bhateja · London, UK</p>
+  <a href="https://danishbhatejapersonalportfolio.tiiny.site" target="_blank">danishbhatejapersonalportfolio.tiiny.site</a>
+</footer>
+
+</body>
+</html>
